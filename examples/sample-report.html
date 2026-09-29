@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>What is slowing this PC</title>
+<style>
+
+:root {
+  color-scheme: light;
+  --ink: #1c1915;
+  --muted: #5c564c;
+  --paper: #f6f3ec;
+  --card: #fffdf8;
+  --line: #e3dccf;
+  --block: #8c2f2f;
+  --slow: #8a5a00;
+  --mild: #2f5d50;
+  --fine: #3d4a3f;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 18px/1.5 "Segoe UI", "Source Sans 3", Helvetica, Arial, sans-serif;
+}
+main { max-width: 820px; margin: 0 auto; padding: 32px 20px 64px; }
+h1 { font-size: 2.1rem; line-height: 1.15; margin: 0 0 8px; letter-spacing: -0.02em; }
+h2 { font-size: 1.35rem; margin: 0 0 10px; }
+h3 { font-size: 1.25rem; margin: 0; }
+.eyebrow { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; color: var(--muted); margin: 0 0 8px; }
+.meta, .quiet, footer { color: var(--muted); }
+.demo { background: #fff4d6; border: 1px solid #e6d39a; padding: 10px 12px; border-radius: 10px; }
+.summary { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 8px 18px 4px; margin: 18px 0; }
+section { margin: 28px 0; }
+.card { background: var(--card); border: 1px solid var(--line); border-left: 6px solid var(--mild); border-radius: 14px; padding: 16px 16px 8px; margin: 12px 0 16px; }
+.card.blocking { border-left-color: var(--block); }
+.card.slowing { border-left-color: var(--slow); }
+.card-top { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; flex-wrap: wrap; }
+.pill { font-size: 0.82rem; font-weight: 650; border-radius: 999px; padding: 3px 10px; background: #e7efe9; color: var(--mild); }
+.pill.blocking { background: #f8e4e4; color: var(--block); }
+.pill.slowing { background: #f8efd8; color: var(--slow); }
+.impact { color: var(--muted); margin-top: 6px; }
+.meters { display: grid; gap: 8px; margin: 8px 0 12px; }
+.meter-label { display: flex; justify-content: space-between; gap: 12px; font-size: 0.92rem; color: var(--muted); }
+.track { height: 8px; background: #efeae0; border-radius: 99px; overflow: hidden; }
+.track span { display: block; height: 100%; background: #3f5e52; border-radius: 99px; }
+ul, ol { padding-left: 1.2rem; }
+li { margin: 0.4rem 0; }
+form.check { display: flex; flex-wrap: wrap; gap: 12px; align-items: end; background: var(--card); border: 1px solid var(--line); padding: 14px; border-radius: 14px; margin-bottom: 18px; }
+label { display: flex; flex-direction: column; font-size: 0.9rem; color: var(--muted); gap: 4px; }
+input { font: inherit; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--line); color: var(--ink); background: white; width: 6rem; }
+button { font: inherit; background: #24352c; color: white; border: 0; border-radius: 10px; padding: 10px 16px; cursor: pointer; }
+button:hover { background: #1a2820; }
+footer { margin-top: 28px; font-size: 0.92rem; }
+@media (max-width: 640px) {
+  body { font-size: 17px; }
+  h1 { font-size: 1.7rem; }
+  main { padding: 20px 14px 48px; }
+}
+
+</style>
+</head>
+<body>
+<main>
+
+<header>
+<p class='eyebrow'>Read-only check · nothing was closed or changed</p>
+<h1>What is slowing this PC</h1>
+<p class='demo'>Demo data. This is a made-up PC so you can practice reading a report. It is not your computer.</p>
+<p class='meta'>
+Tuesday, September 29, 2026 at 6:40 PM EDT
+ · 
+Example-PC
+ · 
+Windows-11
+</p>
+<p class='meta'>
+Watched for 16 seconds across 2 samples. 8 cores, 16 GB RAM, memory 93% full, processor 90% busy.
+</p>
+</header>
+<section class='summary'>
+<h2>Summary</h2>
+<p>In this 16-second check, Google Chrome, Microsoft OneDrive, and Microsoft Word are using enough of the PC to slow other programs.</p>
+<p>At the same time, the processor is 90% busy, memory is 93% full, and the PC is using the disk as extra memory, which feels like freezing.</p>
+<p>There is also a whole-PC condition below that can slow every program at once.</p>
+</section>
+<section><h2>Whole-PC conditions</h2><ul>
+<li>The drive C:\ is 96% full, with 12 GB free. Windows gets slow, and updates fail, when a drive has less than about 15% free.</li>
+<li>Memory is almost full and the PC has started using the disk as extra RAM. That one condition makes every program feel slow. The large programs above are what filled the memory.</li>
+<li>Windows recorded 1 disk error in the last 15 minutes. Disk errors slow every program, because every program has to wait on storage. Copy important files somewhere else and check the drive.</li>
+<li>Windows is compressing memory (about 1.4 GB). That happens when RAM is tight. The programs using the most memory are the cause, not Memory Compression.</li>
+</ul></section>
+<section><h2>Slowing other programs</h2>
+<article class='card blocking'><div class='card-top'><h3>Google Chrome</h3><span class='pill blocking'>Slowing other programs a lot</span></div><p class='impact'>Impact 79 out of 100 · 2 processes</p><p>These 2 processes belong to Google Chrome (C:\Program Files\Google\Chrome\Application\chrome.exe).</p><p>They are added together because they are the same program, not because Windows listed one line.</p><p>It is using about 55% of the processor (around 4.4 of 8 cores), 5.5 GB of memory (34% of RAM), and disk activity of 3.0 MB/s read and 1.2 MB/s written.</p><p>This is enough to get in the way of other programs. Google Chrome is one of the main reasons the PC feels slow right now. The processor is spending a large share of its time here, so other programs wait for their turn.</p><p>It was high in all 2 samples, so this is not a one-second blip.</p><p>It is touching memory about 100,000 times a second while RAM is 93% full. When memory is that full, those requests spill onto the disk and the whole PC stutters. On Windows this counter also includes harmless bookkeeping, so it is only treated as a problem because memory or the disk is already under stress.</p><p>Windows logged 2 errors for it in the last 15 minutes. That is a small burst, often a single crash, not an ongoing stream of errors. Judge the slowdown from the processor, memory, and disk numbers, not from this burst alone.</p><p>It is running as John.</p><p>Every Chrome process here is one program: the browser, its tabs, and its extensions. This check cannot see which tab.</p><div class='meters'><div class='meter'><div class='meter-label'><span>Processor</span><span>55% of the PC</span></div><div class='track'><span style='width:55.1%'></span></div></div><div class='meter'><div class='meter-label'><span>Memory</span><span>5.5 GB</span></div><div class='track'><span style='width:34.0%'></span></div></div><div class='meter'><div class='meter-label'><span>Disk</span><span>4.2 MB/s</span></div><div class='track'><span style='width:6.0%'></span></div></div></div></article>
+<article class='card slowing'><div class='card-top'><h3>Microsoft OneDrive</h3><span class='pill slowing'>Slowing other programs</span></div><p class='impact'>Impact 18 out of 100 · 1 process</p><p>This process belongs to Microsoft OneDrive (C:\Users\John\AppData\Local\Microsoft\OneDrive\OneDrive.exe).</p><p>It is using about 4% of the processor (around 0.3 of 8 cores) and disk activity of 8.0 MB/s read and 42 MB/s written.</p><p>This is enough to slow other programs. Microsoft OneDrive is taking a real share of the PC. Other programs that need to read or write are waiting behind this disk activity. That is a large share of all disk activity during the check.</p><p>It was high in all 2 samples, so this is not a one-second blip.</p><p>It is running as John.</p><p>OneDrive is syncing files. While it checks or uploads a lot of files it holds the disk, and File Explorer feels slow because it waits on those same files.</p><div class='meters'><div class='meter'><div class='meter-label'><span>Processor</span><span>4% of the PC</span></div><div class='track'><span style='width:4.0%'></span></div></div><div class='meter'><div class='meter-label'><span>Memory</span><span>180 MB</span></div><div class='track'><span style='width:1.1%'></span></div></div><div class='meter'><div class='meter-label'><span>Disk</span><span>50 MB/s</span></div><div class='track'><span style='width:71.4%'></span></div></div></div></article>
+<article class='card slowing'><div class='card-top'><h3>Microsoft Word</h3><span class='pill slowing'>Slowing other programs</span></div><p class='impact'>Impact 11 out of 100 · 1 process</p><p>This process belongs to Microsoft Word (C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE).</p><p>It is using 350 MB of memory (2% of RAM).</p><p>This is enough to make the PC feel stuck. Microsoft Word is not responding. The frozen window is the problem more than the raw processor number.</p><p>It was high in all 2 samples, so this is not a one-second blip.</p><p>Windows reports 1 window for this program as not responding. A frozen window often means the program is stuck, and the PC can feel slow until it is closed.</p><p>It is running as John.</p><div class='meters'><div class='meter'><div class='meter-label'><span>Processor</span><span>2% of the PC</span></div><div class='track'><span style='width:2.0%'></span></div></div><div class='meter'><div class='meter-label'><span>Memory</span><span>350 MB</span></div><div class='track'><span style='width:2.1%'></span></div></div><div class='meter'><div class='meter-label'><span>Disk</span><span>0 B/s</span></div><div class='track'><span style='width:0.0%'></span></div></div></div></article>
+</section>
+<section><h2>Worth watching</h2>
+<p>Using something, but not enough on their own to freeze the PC.</p>
+<article class='card mild'><div class='card-top'><h3>Windows Widgets</h3><span class='pill mild'>Worth watching</span></div><p class='impact'>Impact 11 out of 100 · 1 process</p><p>This process belongs to Windows Widgets (C:\Program Files\WindowsApps\Widgets\Widgets.exe).</p><p>It is using very little processor, memory, and disk right now.</p><p>This is noticeable, but on its own it should not freeze the other programs. It matters more if several programs are in this range together.</p><p>Across 2 samples it stayed in the same range.</p><p>Windows logged 18 errors in the last 15 minutes, about 1.2 every minute. That is a real stream of failures, not a one-time crash. These failures make this program unreliable. They do not, by themselves, prove it is slowing unrelated programs.</p><p>It is running as John.</p><div class='meters'><div class='meter'><div class='meter-label'><span>Processor</span><span>1% of the PC</span></div><div class='track'><span style='width:1.0%'></span></div></div><div class='meter'><div class='meter-label'><span>Memory</span><span>120 MB</span></div><div class='track'><span style='width:0.7%'></span></div></div><div class='meter'><div class='meter-label'><span>Disk</span><span>0 B/s</span></div><div class='track'><span style='width:0.0%'></span></div></div></div></article>
+<article class='card mild'><div class='card-top'><h3>SysMain</h3><span class='pill mild'>Worth watching</span></div><p class='impact'>Impact 9 out of 100 · 1 process</p><p>This process belongs to the Windows service SysMain, hosted by svchost.exe.</p><p>It is using about 6% of the processor (around 0.5 of 8 cores) and disk activity of 12 MB/s read and 3.0 MB/s written.</p><p>This is noticeable, but on its own it should not freeze the other programs. It matters more if several programs are in this range together.</p><p>Across 2 samples it stayed in the same range.</p><p>It is running as SYSTEM, which means it is a background service rather than a window you opened.</p><p>SysMain (once called Superfetch) preloads programs it thinks you will open. On a spinning hard drive this often makes the whole PC feel busy. On an SSD it is usually harmless.</p><div class='meters'><div class='meter'><div class='meter-label'><span>Processor</span><span>6% of the PC</span></div><div class='track'><span style='width:6.0%'></span></div></div><div class='meter'><div class='meter-label'><span>Memory</span><span>90 MB</span></div><div class='track'><span style='width:0.5%'></span></div></div><div class='meter'><div class='meter-label'><span>Disk</span><span>15 MB/s</span></div><div class='track'><span style='width:21.4%'></span></div></div></div></article>
+</section>
+<section><h2>What to do next</h2><ol>
+<li>Close tabs you are not using and turn off extensions you do not recognize. Then restart Chrome. If it is still this heavy with one window, the problem is an extension or a single site.</li>
+<li>Click the OneDrive cloud icon, choose Pause syncing, and see if the PC feels normal. If it does, a sync backlog was the cause.</li>
+<li>Save anything open in Microsoft Word if you can, then close it. A window Windows already calls &#x27;not responding&#x27; usually will not recover on its own.</li>
+<li>Free space on the full drive. Aim for at least 15% free, then restart the PC.</li>
+<li>Back up files you cannot replace. Then check the drive&#x27;s health, or have a shop do it. Disk errors are a hardware warning, not an app to uninstall.</li>
+</ol></section>
+<p class='quiet'>1 other programs were too quiet to list.</p>
+<p class='quiet'>This check itself was using about 80 MB of memory while it watched. That is the cost of measuring, and it is not counted against your programs.</p>
+<section><h2>How to judge this report</h2><ul>
+<li>Run this while the PC actually feels slow. A check taken when everything feels fine will look fine.</li>
+<li>One pass is a snapshot. If a program is listed as slowing others, run again for 20 seconds, three times (see the instructions). High every time means a real load. High once means a spike, such as an update or a scan.</li>
+<li>Processor percent here is the share of the whole PC, not of one core. Task Manager often shows a bigger number for the same process because 100% there can mean a single core.</li>
+<li>A single Windows error is usually one crash. It does not, by itself, slow the rest of the PC. Several errors every minute can, when they come from a program other software waits on (file sync, search, File Explorer, security, updates).</li>
+<li>This check does not see which browser tab, and it does not see inside a program&#x27;s private errors unless Windows wrote them to the event log.</li>
+<li>It does not measure internet speed. If the processor is mostly free and only websites feel slow, the network or the site is the problem.</li>
+<li>Nothing is closed or changed. You decide what to quit.</li>
+</ul>
+<p>The impact number only ranks programs against each other. It is not a health grade and it is not a virus score. Read the sentences.</p></section>
+<footer>whats-slow 1.0.0. The report stays on this PC. No usage data is sent anywhere.</footer>
+</main></body></html>

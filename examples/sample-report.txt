@@ -1,0 +1,173 @@
+WHAT IS SLOWING THIS PC
+========================================================================
+DEMO DATA. This is a made-up PC so you can practice reading a report.
+It is not your computer.
+
+When: Tuesday, September 29, 2026 at 6:40 PM EDT
+Computer: Example-PC  ·  Windows-11
+Watched for 16 seconds across 2 samples. 8 processor cores, 16 GB RAM, memory 93% full, processor 90% busy.
+
+SUMMARY
+------------------------------------------------------------------------
+In this 16-second check, Google Chrome, Microsoft OneDrive, and Microsoft Word
+are using enough of the PC to slow other programs.
+
+At the same time, the processor is 90% busy, memory is 93% full, and the PC is
+using the disk as extra memory, which feels like freezing.
+
+There is also a whole-PC condition below that can slow every program at once.
+
+WHOLE-PC CONDITIONS
+------------------------------------------------------------------------
+• The drive C:\ is 96% full, with 12 GB free. Windows gets slow, and updates
+  fail, when a drive has less than about 15% free.
+
+• Memory is almost full and the PC has started using the disk as extra RAM.
+  That one condition makes every program feel slow. The large programs above
+  are what filled the memory.
+
+• Windows recorded 1 disk error in the last 15 minutes. Disk errors slow every
+  program, because every program has to wait on storage. Copy important files
+  somewhere else and check the drive.
+
+• Windows is compressing memory (about 1.4 GB). That happens when RAM is
+  tight. The programs using the most memory are the cause, not Memory
+  Compression.
+
+SLOWING OTHER PROGRAMS
+------------------------------------------------------------------------
+1. Google Chrome — Slowing other programs a lot (impact 79 of 100)
+   These 2 processes belong to Google Chrome (C:\Program
+   Files\Google\Chrome\Application\chrome.exe).
+   They are added together because they are the same program, not because
+   Windows listed one line.
+   It is using about 55% of the processor (around 4.4 of 8 cores), 5.5 GB of
+   memory (34% of RAM), and disk activity of 3.0 MB/s read and 1.2 MB/s
+   written.
+   This is enough to get in the way of other programs. Google Chrome is one of
+   the main reasons the PC feels slow right now. The processor is spending a
+   large share of its time here, so other programs wait for their turn.
+   It was high in all 2 samples, so this is not a one-second blip.
+   It is touching memory about 100,000 times a second while RAM is 93% full.
+   When memory is that full, those requests spill onto the disk and the whole
+   PC stutters. On Windows this counter also includes harmless bookkeeping, so
+   it is only treated as a problem because memory or the disk is already under
+   stress.
+   Windows logged 2 errors for it in the last 15 minutes. That is a small
+   burst, often a single crash, not an ongoing stream of errors. Judge the
+   slowdown from the processor, memory, and disk numbers, not from this burst
+   alone.
+   It is running as John.
+   Every Chrome process here is one program: the browser, its tabs, and its
+   extensions. This check cannot see which tab.
+
+2. Microsoft OneDrive — Slowing other programs (impact 18 of 100)
+   This process belongs to Microsoft OneDrive
+   (C:\Users\John\AppData\Local\Microsoft\OneDrive\OneDrive.exe).
+   It is using about 4% of the processor (around 0.3 of 8 cores) and disk
+   activity of 8.0 MB/s read and 42 MB/s written.
+   This is enough to slow other programs. Microsoft OneDrive is taking a real
+   share of the PC. Other programs that need to read or write are waiting
+   behind this disk activity. That is a large share of all disk activity
+   during the check.
+   It was high in all 2 samples, so this is not a one-second blip.
+   It is running as John.
+   OneDrive is syncing files. While it checks or uploads a lot of files it
+   holds the disk, and File Explorer feels slow because it waits on those same
+   files.
+
+3. Microsoft Word — Slowing other programs (impact 11 of 100)
+   This process belongs to Microsoft Word (C:\Program Files\Microsoft
+   Office\root\Office16\WINWORD.EXE).
+   It is using 350 MB of memory (2% of RAM).
+   This is enough to make the PC feel stuck. Microsoft Word is not responding.
+   The frozen window is the problem more than the raw processor number.
+   It was high in all 2 samples, so this is not a one-second blip.
+   Windows reports 1 window for this program as not responding. A frozen
+   window often means the program is stuck, and the PC can feel slow until it
+   is closed.
+   It is running as John.
+
+WORTH WATCHING
+------------------------------------------------------------------------
+These are using something, but not enough on their own to freeze the PC.
+
+1. Windows Widgets — Worth watching (impact 11 of 100)
+   This process belongs to Windows Widgets (C:\Program
+   Files\WindowsApps\Widgets\Widgets.exe).
+   It is using very little processor, memory, and disk right now.
+   This is noticeable, but on its own it should not freeze the other programs.
+   It matters more if several programs are in this range together.
+   Across 2 samples it stayed in the same range.
+   Windows logged 18 errors in the last 15 minutes, about 1.2 every minute.
+   That is a real stream of failures, not a one-time crash. These failures
+   make this program unreliable. They do not, by themselves, prove it is
+   slowing unrelated programs.
+   It is running as John.
+
+2. SysMain — Worth watching (impact 9 of 100)
+   This process belongs to the Windows service SysMain, hosted by svchost.exe.
+   It is using about 6% of the processor (around 0.5 of 8 cores) and disk
+   activity of 12 MB/s read and 3.0 MB/s written.
+   This is noticeable, but on its own it should not freeze the other programs.
+   It matters more if several programs are in this range together.
+   Across 2 samples it stayed in the same range.
+   It is running as SYSTEM, which means it is a background service rather than
+   a window you opened.
+   SysMain (once called Superfetch) preloads programs it thinks you will open.
+   On a spinning hard drive this often makes the whole PC feel busy. On an SSD
+   it is usually harmless.
+
+QUIET PROGRAMS
+------------------------------------------------------------------------
+1 other programs were using too little to get in the way. They are not listed.
+
+WHAT TO DO NEXT
+------------------------------------------------------------------------
+• Close tabs you are not using and turn off extensions you do not recognize.
+  Then restart Chrome. If it is still this heavy with one window, the problem
+  is an extension or a single site.
+
+• Click the OneDrive cloud icon, choose Pause syncing, and see if the PC feels
+  normal. If it does, a sync backlog was the cause.
+
+• Save anything open in Microsoft Word if you can, then close it. A window
+  Windows already calls 'not responding' usually will not recover on its own.
+
+• Free space on the full drive. Aim for at least 15% free, then restart the
+  PC.
+
+• Back up files you cannot replace. Then check the drive's health, or have a
+  shop do it. Disk errors are a hardware warning, not an app to uninstall.
+
+This check itself was using about 80 MB of memory while it watched. That is
+the cost of measuring, and it is not counted against your programs.
+
+HOW TO JUDGE THIS REPORT
+------------------------------------------------------------------------
+• Run this while the PC actually feels slow. A check taken when everything
+  feels fine will look fine.
+
+• One pass is a snapshot. If a program is listed as slowing others, run again
+  for 20 seconds, three times (see the instructions). High every time means a
+  real load. High once means a spike, such as an update or a scan.
+
+• Processor percent here is the share of the whole PC, not of one core. Task
+  Manager often shows a bigger number for the same process because 100% there
+  can mean a single core.
+
+• A single Windows error is usually one crash. It does not, by itself, slow
+  the rest of the PC. Several errors every minute can, when they come from a
+  program other software waits on (file sync, search, File Explorer, security,
+  updates).
+
+• This check does not see which browser tab, and it does not see inside a
+  program's private errors unless Windows wrote them to the event log.
+
+• It does not measure internet speed. If the processor is mostly free and only
+  websites feel slow, the network or the site is the problem.
+
+• Nothing is closed or changed. You decide what to quit.
+
+The impact number (out of 100) only ranks programs against each other. It is not a health grade and it is not a virus score. Read the sentences.
+whats-slow 1.0.0. Read-only. No data leaves this PC.
